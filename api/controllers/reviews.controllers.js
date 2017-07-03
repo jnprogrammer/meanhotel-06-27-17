@@ -1,6 +1,28 @@
 var mongoose = require('mongoose');
 var Hotel = mongoose.model('Hotel');
 
+var _addReview = function (req, res, hotel) {
+  
+  hotel.reviews.push({
+    name : req.body.name,
+    rating : parseInt(req.body.rating, 10),
+    review : req.body.review
+  });
+
+  hotel.save(function(err, hotelUpdated) {
+    if (err) {
+      res
+        .status(500)
+        .json(err);
+    } else {
+      res
+        .status(200)
+        .json(hotelUpdated.reviews[hotelUpdated.reviews.length - 1]);
+    }
+  });
+
+};
+
 module.exports.reviewsGetAll = function(req, res){
      var id = req.params.hotelId;
    
@@ -72,27 +94,7 @@ module.exports.reviewsGetOne = function(req, res) {
         .json(response.message);
     });
 };
-var _addReview = function (req, res, hotel) {
-  
-  hotel.reviews.push({
-    name : req.body.name,
-    rating : parseInt(req.body.rating, 10),
-    review : req.body.review
-  });
 
-  hotel.save(function(err, hotelUpdated) {
-    if (err) {
-      res
-        .status(500)
-        .json(err);
-    } else {
-      res
-        .status(200)
-        .json(hotelUpdated.reviews[hotelUpdated.reviews.length - 1]);
-    }
-  });
-
-};
 module.exports.reviewsAddOne = function(req, res) {
 
   var id = req.params.hotelId;
@@ -127,8 +129,7 @@ module.exports.reviewsAddOne = function(req, res) {
       }
     });
 
- };
-
+};
 
 module.exports.reviewsUpdateOne = function(req,res){
   var hotelId = req.params.hotelId;

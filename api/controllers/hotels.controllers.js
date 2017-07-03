@@ -34,11 +34,17 @@ var runGeoQuery = function(req,res){
         });
 };
 
+var _splitArray = function(input) {
+  var output;
+  if (input && input.length > 0) {
+    output = input.split(";");
+  } else {
+    output = [];
+  }
+  return output;
+};
 
 module.exports.hotelsGetAll = function(req, res){
-    // native driver
-    //  var db = dbconn.get();
-    //  var collection = db.collection('hotels');
 
     // for manual queries 
      var offset = 0;
@@ -88,17 +94,6 @@ module.exports.hotelsGetAll = function(req, res){
          }
         });
 
-    //  collection
-    //     .find()
-    //     .skip(offset)
-    //     .limit(count)
-    //     .toArray(function(err,docs){
-    //         console.log("Found hotels",docs);
-    //         res
-    //             .status(200)
-    //             .json(docs);
-    //     });
-
 };
 
 module.exports.hotelsGetOne = function(req, res){
@@ -128,17 +123,6 @@ module.exports.hotelsGetOne = function(req, res){
                .json(response.message);
         });
 
-};
-
-
-var _splitArray = function(input) {
-  var output;
-  if (input && input.length > 0) {
-    output = input.split(";");
-  } else {
-    output = [];
-  }
-  return output;
 };
 
 module.exports.hotelsAddOne = function(req, res){

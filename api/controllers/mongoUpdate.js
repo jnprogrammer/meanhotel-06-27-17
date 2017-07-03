@@ -8,3 +8,4 @@ db.hotels.update(
         }
     }
 )
+// Delete me ! or use for test data
