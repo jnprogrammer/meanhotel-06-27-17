@@ -49,7 +49,7 @@ module.exports.hotelsGetAll = function(req, res){
     // for manual queries 
      var offset = 0;
      var count = 5;
-     var maxCount =10;
+     var maxCount =20; //limit on max list of hotels queried
 
      if(req.query && req.query.lat && req.query.lng){
          runGeoQuery(req,res);
