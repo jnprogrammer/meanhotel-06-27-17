@@ -13,7 +13,7 @@ function config($routeProvider,$locationProvider){
     controller: HotelController,
     controllerAs: 'vm'
     });
-  $locationProvider
+  $locationProvider //fixes issue where links in angular wouldn't follow. aka hashbang issue
     .hashPrefix("");
     
 }
