@@ -4,9 +4,9 @@ angular.module('meanhotel')
 
 function HotelController($http,$routeParams){
     var vm = this;
-    vm.id = $routeParams.id;
+    var id = $routeParams.id;
 
-    $http.get('api/hotels/' + id ).then(function(response){
+    $http.get('/api/hotels/' + id ).then(function(response){
         vm.hotels = response.data;
     });
 }
