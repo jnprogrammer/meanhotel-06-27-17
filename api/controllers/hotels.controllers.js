@@ -45,7 +45,8 @@ var _splitArray = function(input) {
 };
 
 module.exports.hotelsGetAll = function(req, res){
-
+    console.log('REquested By: ' + req.user);
+    
     // for manual queries 
      var offset = 0;
      var count = 5;
