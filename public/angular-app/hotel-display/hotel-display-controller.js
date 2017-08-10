@@ -24,7 +24,7 @@ function HotelController($route,$routeParams,$window,hotelDataFactory, AuthFacto
     };
 
     vm.addReview = function(){
-        var token = jwtHelper.decodedToken($window.sessionStorage.token);
+        var token = jwtHelper.decodeToken($window.sessionStorage.token);
         var username = token.username;
 
         var postData={
