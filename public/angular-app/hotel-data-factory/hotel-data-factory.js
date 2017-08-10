@@ -6,7 +6,6 @@ function hotelDataFactory($http){
         hotelList:hotelList,
         hotelDisplay:hotelDisplay,
         postReview:postReview
-    
     };
 
     function hotelList(){

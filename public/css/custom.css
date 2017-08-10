@@ -8,6 +8,11 @@
     /* Margin bottom by footer height */
     margin-bottom: 90px;
   }
+   body > .container {
+    padding-top: 70px;
+    padding-bottom: 30px;
+   }
+  
   .padded {
     padding-top: 30px
   }
